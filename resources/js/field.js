@@ -14,6 +14,10 @@ import TRCityFormField from './components/TRCity/FormField'
 import TRCityIndexField from './components/TRCity/IndexField'
 import TRCityDetailField from './components/TRCity/DetailField'
 
+import TRStreetFormField from './components/TRStreet/FormField'
+import TRStreetIndexField from './components/TRStreet/IndexField'
+import TRStreetDetailField from './components/TRStreet/DetailField'
+
 import TRZipCodeFormField from './components/TRZipCode/FormField'
 import TRZipCodeIndexField from './components/TRZipCode/IndexField'
 import TRZipCodeDetailField from './components/TRZipCode/DetailField'
@@ -43,6 +47,10 @@ Nova.booting((app, store) => {
     app.component('form-tr-city', TRCityFormField)
     app.component('index-tr-city', TRCityIndexField)
     app.component('detail-tr-city', TRCityDetailField)
+
+    app.component('form-tr-street', TRStreetFormField)
+    app.component('index-tr-street', TRStreetIndexField)
+    app.component('detail-tr-street', TRStreetDetailField)
 
     app.component('form-tr-zip-code', TRZipCodeFormField)
     app.component('index-tr-zip-code', TRZipCodeIndexField)

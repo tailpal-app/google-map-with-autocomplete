@@ -120,6 +120,10 @@ export default {
             for (const component of place.address_components) {
                 const componentType = component.types[0]
                 switch (componentType) {
+                    case 'street_address': {
+                        Nova.$emit('street-address-update', component.long_name)
+                        break
+                    }
                     case 'postal_code': {
                         Nova.$emit('zip-code-update', component.long_name)
                         break

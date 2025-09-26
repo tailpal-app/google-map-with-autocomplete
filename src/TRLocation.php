@@ -1,4 +1,5 @@
 <?php
+
 namespace Trinityrank\GoogleMapWithAutocomplete;
 
 use Laravel\Nova\Panel;
@@ -14,6 +15,7 @@ class TRLocation
             TRCity::make('City')->rules('required', 'max:255'),
             TRZipCode::make('Zip Code')->rules('required', 'max:255'),
             TRAddress::make('Address')->rules('required', 'max:255'),
+            TRStreet::make('Street')->rules('required', 'max:255'),
         ];
     }
 
