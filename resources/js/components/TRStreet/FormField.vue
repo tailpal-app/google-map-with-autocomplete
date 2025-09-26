@@ -27,6 +27,7 @@ export default {
 
     mounted() {
         Nova.$on('street-address-update', data => {
+            console.log('Nova.$on(street-address-update)', data);
             this.value = data
         })
     },

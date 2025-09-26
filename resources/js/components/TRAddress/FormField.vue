@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { FormField, HandlesValidationErrors } from 'laravel-nova'
+import {FormField, HandlesValidationErrors} from 'laravel-nova'
 
 export default {
     mixins: [FormField, HandlesValidationErrors],
@@ -62,11 +62,21 @@ export default {
 
             console.log({place});
 
+            let street_address = '';
+
             for (const component of place.address_components) {
                 const componentType = component.types[0]
                 switch (componentType) {
                     case 'street_address': {
                         Nova.$emit('street-address-update', component.long_name)
+                        break
+                    }
+                    case 'route': {
+                        street_address = component.long_name + street_address
+                        break
+                    }
+                    case 'street_number': {
+                        street_address = street_address + ' ' + component.long_name;
                         break
                     }
                     case 'postal_code': {
@@ -88,6 +98,11 @@ export default {
                     case 'country':
                         Nova.$emit('country-update', component.long_name)
                         break
+                }
+                console.log({street_address});
+
+                if (street_address) {
+                    Nova.$emit('street-address-update', street_address)
                 }
             }
 
